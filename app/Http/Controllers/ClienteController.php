@@ -51,7 +51,7 @@ class ClienteController extends Controller
         $request->validate([
             'nombre' => 'sometimes|string|max:255',
             'telefono' => 'sometimes|string|max:20',
-            'email' => 'sometimes|email|unique:clientes,email' . $id, 
+            'email' => 'sometimes|email|unique:clientes,email,' . $id, 
         ]);
         $cliente->update($request->all());
         return response()->json($cliente, 200);
